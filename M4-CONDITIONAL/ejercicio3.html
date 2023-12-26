@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M4E3</title>
+</head>
+
+<body>
+    <h1>Ejercicio M4E3</h1>
+    <h2>Becas</h2>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Una escola d’idiomes concedeix beques a futurs estudiants si compleixen una sèrie de requisits.</p>
+        <p> l'alumne/a se li assigna una beca si és major d’edat i si té un títol universitari.
+            O també se li assigna una beca si l’alumne/a està a l’atur.</p>
+        <p>El programa demana les tres dades per pantalla i en finalitzar mostra si l’alumne/a té la beca o no.</p>
+    </details>
+    
+    <p>Indica tu edad: <input type="number" id="edad" value="18"></p>
+    <p>¿Tienes titulo universitario ?: <input type="checkbox" id="titulo" checked></p>
+    <p>¿Estas en el paro ?: <input type="checkbox" id="paro"></p>
+    <p><button onclick="verificarBeca()">Verificar Beca</button></p>
+    <p id="respuesta"></p>
+    <script>
+        function verificarBeca() {
+
+            let edad = Number(document.getElementById("edad").value);
+            console.log("edad = ", edad);
+            let titulo = document.getElementById("titulo").checked;
+            console.log("titulo = ", titulo);
+            let paro = document.getElementById("paro").checked;
+            console.log("paro = ", paro);
+            let beca = "";
+
+            if ((edad >= 18 && titulo == true) || (paro == true)) {
+                beca = "Se asigna la beca";
+            } else {
+                beca = "la persona no cumple los requisitos "
+            }
+            document.getElementById('respuesta').innerHTML = beca;
+            console.log(beca);
+        }
+    </script>
+
+
+</body>
+
+</html>

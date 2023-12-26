@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M5E1</title>
+</head>
+
+<body>
+    <h1>Ejercicio M5E1</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Fer un programa que pregunti a l'usuari/ària pel nombre (número) de paraules que es volen introduir a un
+            array.</p>
+        <p>Un cop l'usuari/ària respongui, el programa haurà de preguntar per tantes paraules com el nombre (número) de
+            paraules que ha dit l’usuari/ària que volia introduir.</p>
+        <p>Les paraules s'aniran guardant a l'array i un cop han sigut totes introduïdes, es mostren per pantalla.</p>
+    </details>
+    <h2>Introducir Palabras en un Array</h2>
+    <p>Introduce el número de palabras que deseas agregar al array: <input type="number" id="numPalabras"></p>
+
+    <p><button onclick="pedirPalabras()">Continuar</button></p>
+    <p id="demo"></p>
+    <script>
+        function pedirPalabras() {
+            console.clear();
+            let numeroPalabras = parseInt(document.getElementById('numPalabras').value);
+            let palabraArray = [];
+            let palabra = "";
+
+            if (numeroPalabras < 1) {
+                alert("Introduce un numero diferente de 0")
+            } else {
+
+                for (let i = 0; i < numeroPalabras; i++) {
+                    palabra = prompt("Añadir una palabra");
+                    palabraArray.push(palabra);
+                }
+
+                console.log(palabraArray);
+                alert("Las palabras introducidas son: " + palabraArray.join(' '));
+            }
+            document.getElementById("demo").innerHTML = "El resultado es : " + palabraArray.join(' ');
+        }
+    </script>
+</body>
+
+</html>

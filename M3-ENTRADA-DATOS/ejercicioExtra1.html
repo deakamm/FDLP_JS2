@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra1 M3Exra1</title>
+</head>
+<body>
+    <h1>Extra1 M3Extra1</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>Escriu un programa JavaScript que llegeix un nombre (número) 
+        i mostra per pantalla el doble i el triple d'aquest número.</p>
+    </details>
+    
+    <p>Introduce un numero<input type="number" id="num"></p>
+    <button onclick="calcular()">Mostrar Resultado</button>
+    <p id="mostrar"></p>
+
+    <script>
+        function calcular() {
+
+            let num1 = Number(document.getElementById("num").value);
+
+            let doble = num1 ** 2;
+            console.log(doble);
+
+            let triple = num1 ** 3;
+            console.log(triple);
+
+            let resultado = "El doble del numero es: " + doble + "<br>"+
+                            "El triple del numero es: " + triple ;
+
+
+        document.getElementById("mostrar").innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>

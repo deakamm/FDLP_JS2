@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.1E2</title>
+</head>
+<body>
+    <h1>Ejercicio M7.1E2</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>Un/a professor/a vol calcular les mitges de les notes de tota la classe. 
+            Crea una aplicació on l'usuari/ària introduirà un número per pantalla 
+            (el número correspon al nombre de notes que vol introduir) i 
+            el programa li demanarà que introdueixi les notes de tots els/les alumnes.
+
+            Un cop les notes han sigut introduïdes, el programa retorna el següent:</p>
+    </details>
+    <h2>Calculadora de Notas Clase</h2>
+    <p>Introduce la nota del alumno: <input type="number" id="num" value="9"></p>
+    <p><button onclick="calcularNota()">Resultado de la Nota</button></p>
+    <p id="mostrar"></p>
+    <script>
+        function calcularNota() {
+            let nota = parseFloat(document.getElementById("num").value);
+            let respuesta = "";
+
+            if (nota  < 5) {
+                respuesta = `La nota media de la clase está suspensa.Tu nota es: <b>${nota}</b>, deberías preguntar tus dudas y trabajar más.`;
+            } else if (nota  < 7) {
+                respuesta = `La nota media de la clase es buena, Tu nota es: <b>${nota}</b>, pero  deberías mejorar tu trabajo personal.`;
+            } else {
+                respuesta= `¡Enhorabuena! Tu nota es: <b>${nota}</b> Haz superado(a) la nota media de la clase.`;
+            }
+            document.getElementById("mostrar").innerHTML = respuesta;
+        }
+    </script>
+</body>
+</html>

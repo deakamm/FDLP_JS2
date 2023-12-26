@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculadora de Fibonacci</h1>
+    <p>Introduce un numero para el fibonacci: <input type="number" id="num" value=""></p>
+    <p><button onclick="mostrar()">Fibonacci</button></p>
+    <p id="respuesta"></p>
+    <script>
+        function mostrar() {
+            let num = document.getElementById("num").value;
+            let fibonacci = [0, 1];
+
+            for (let index = 2; index < num; index++) {
+                fibonacci.push(fibonacci[index-1] + fibonacci[index-2]);
+                
+            }
+            document.getElementById("respuesta").innerHTML = `El resultado del fibonacci es: ${fibonacci}`;
+            console.log(fibonacci);
+        }
+    </script>
+</body>
+</html>

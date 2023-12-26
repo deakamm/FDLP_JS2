@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M4-Extra3</title>
+</head>
+<body>
+    <h1>Ejercicio M4-Extra3</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>Escriu un programa que et permeti jugar pedra, paper o tisora ​​amb l'ordinador.</p>
+        <p>Per a això l'ordinador haurà de generar un nombre aleatori entre 1 i 3
+            que representi pedra, paper o tisora ​​respectivament,<br>
+            i l'usuari/ària haurà de respondre al seu torn<br>
+            amb un nombre entre l'1 i el 3 després de mostrar la següent pantalla:</p>
+    </details>
+    <h1>Juguem a pedra, paper o tisora:</h1>
+    <p>1. Pedra</p>
+    <p>2. Paper</p>
+    <p>3. Tisora</p>
+    <label>Tria (1-3): </label>
+    <input type="number" id="jugadorChoice">
+    <button onclick="jugar()">Jugar</button>
+    <p id="resultat"></p>
+
+    <script>
+        function jugar() {
+            const opcions = ["Pedra", "Paper", "Tisora"];
+            const jugadorChoice = parseInt(document.getElementById("jugadorChoice").value);
+            
+            if (jugadorChoice < 1 || jugadorChoice > 3 || isNaN(jugadorChoice)) {
+                document.getElementById("resultat").textContent = "Entenc que no vols jugar. Adeu";
+                return;
+            }
+            
+            const ordinadorChoice = Math.floor(Math.random() * 3) + 1;
+            
+            const jugador = opcions[jugadorChoice - 1];
+            const ordinador = opcions[ordinadorChoice - 1];
+            
+            document.getElementById("resultat").textContent = `Jo he triat ${ordinador} i tu has triat ${jugador}. ${determinarGuanyador(ordinadorChoice, jugadorChoice)}`;
+        }
+
+        function determinarGuanyador(ordinadorChoice, jugadorChoice) {
+            if (ordinadorChoice === jugadorChoice) {
+                return "Empat!";
+            } else if (
+                (ordinadorChoice === 1 && jugadorChoice === 3) ||
+                (ordinadorChoice === 2 && jugadorChoice === 1) ||
+                (ordinadorChoice === 3 && jugadorChoice === 2)
+            ) {
+                return "He guanyat!";
+            } else {
+                return "Has guanyat!";
+            }
+        }
+    </script>
+</body>
+</html>

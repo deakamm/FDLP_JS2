@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2 M7.3E2</title>
+</head>
+<body>
+    <h1>Ejercicio2 M7.3E2</h1>
+    <details>
+        <summary><b><mark>Enunciado</mark></b></summary>
+        <p>En aquest programa l’usuari/ària ha d’introduir 
+        un string i, utilitzant un bucle for, el programa ha 
+        de mostrar l’string al revés.</p>
+    </details>
+    <h2>String al revés</h2>
+    <p><input type="text" id="texto" value="Enhorabuena"></p>
+    <button onclick="main()">Mostrar</button>
+    <p id="frase"></p>
+    <script>
+        function main() {
+            let palabra = document.getElementById("texto").value;
+            let letras ="";
+
+            for (let i=palabra.length - 1; i>=0; i--){
+                letras += palabra[i].trim();
+            }
+
+            document.getElementById("frase").innerHTML = letras;
+            
+        }
+    </script>
+</body>
+</html>

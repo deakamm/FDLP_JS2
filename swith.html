@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWITCH</title>
+</head>
+
+<body>
+  <p>Selecciona el mes:
+    <select id="mes">
+      <option value="1" id="opt1">Enero</option>
+      <option value="2" id="opt2">Febrero</option>
+      <option value="3" id="opt3">Marzo</option>
+      <option value="4" id="opt4">Abril</option>
+      <option value="5" id="opt5">Mayo</option>
+      <option value="6" id="opt6">Junio</option>
+      <option value="7" id="opt7">Julio</option>
+      <option value="8" id="opt8">Agosto</option>
+      <option value="9" id="opt9">Septiembre</option>
+      <option value="10" id="opt10">Octubre</option>
+      <option value="11" id="opt11">Noviembre</option>
+      <option value="12" id="opt12">Diciembre</option>
+    </select>
+  </p>
+  <p><button onclick="mostrarTrimestre()">Mostrar Trimestre</button></p>
+  <p id="resultado"></p>
+  <script>
+    function mostrarTrimestre() {
+      let mes = Number(document.getElementById("mes").value);
+      let opcionId = "opt" + mes;
+      console.log("opcionId", opcionId);      
+      let trimestre = 0;
+      let mesLetra = document.getElementById(opcionId).innerHTML;
+      console.log("mesLetra", mesLetra);      
+      
+
+      switch (mes) {
+        case 1:
+        case 2:
+        case 3:
+          trimestre = 1;
+          break;
+        case 4: 
+        case 5: 
+        case 6:
+          trimestre = 2;
+          break;
+        case 7: 
+        case 8: 
+        case 9:
+          trimestre = 3;
+          break;
+        case 10: 
+        case 11: 
+        case 12:
+          trimestre = 4;
+          break;
+        default: 
+          trimestre=0;
+          alert("Indica un número entre 1 y 12");
+      } // final switch break sale acá
+
+      document.getElementById("resultado").innerHTML= (`El trimestre del mes <b>${mesLetra}</b> es el <b>${trimestre}</b>`);
+    }
+  </script>
+
+</body>
+
+</html>

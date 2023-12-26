@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M4E4</title>
+</head>
+
+<body>
+    <h1>Ejercicio M4E4</h1>
+    
+    <details>
+        <summary>Enunciado</summary>
+        <p>El usuario introduce un número de mes por pantalla y mediante un switch con los 12 meses del año,
+            el programa calcula los días del mes y muestra lo siguiente: </p>
+        <p>Ejemplo: Si el número introducido es 1, entonces debería aparecer en pantalla: "El mes de enero tiene 31
+            días"</p>
+    </details>
+    <h2>Cálculo de los días</h2>
+    <p>Indica el mes:
+        <select id="mes">
+            <option value="1" id="opt1">Enero</option>
+            <option value="2" id="opt2">Febrero</option>
+            <option value="3" id="opt3">Marzo</option>
+            <option value="4" id="opt4">Abril</option>
+            <option value="5" id="opt5">Mayo</option>
+            <option value="6" id="opt6">Junio</option>
+            <option value="7" id="opt7">Julio</option>
+            <option value="8" id="opt8">Agosto</option>
+            <option value="9" id="opt9">Septiembre</option>
+            <option value="10" id="opt10">Octubre</option>
+            <option value="11" id="opt11">Noviembre</option>
+            <option value="12" id="opt12">Diciembre</option>
+        </select>
+    </p>
+
+    <p><button onclick="verificarMes()">Verificar Mes</button></p>
+
+    <p id="respuesta"></p>
+
+    <script>
+        function verificarMes() {
+            let mesNumero = parseInt(document.getElementById('mes').value);
+            let opcionId = "opt" + mesNumero;
+            console.log("OptionId", opcionId);
+            let mesNombre = document.getElementById(opcionId).innerHTML;
+            let respuesta = "";
+
+            switch (mesNombre) {
+                case "Enero":
+                case "Marzo":
+                case "Mayo":
+                case "Julio":
+                case "Agosto":
+                case "Octubre":
+                case "Diciembre":
+                    respuesta = `El mes de <b>${mesNombre}</b> tiene 31 días`;
+                    break;
+                case "Abril":
+                case "Junio":
+                case "Septiembre":
+                case "Noviembre":
+                    respuesta = `El mes de  <b>${mesNombre}</b> tiene 30 días`;
+                    break;
+                case "Febrero":
+                    respuesta = `El mes de   <b>${mesNombre}</b> tiene 28-29 días`;
+                    break;
+            }
+
+            document.getElementById('respuesta').innerHTML = respuesta;
+        }
+    </script>
+</body>
+
+</html>

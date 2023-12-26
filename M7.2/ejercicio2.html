@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.2E2</title>
+</head>
+
+<body>
+    <h1>Ejercicio M7.2E2</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Fes un programa que mostri el següent per pantalla:</p>
+        <pre>
+            * * * * * *
+            * * * * *
+            * * * *
+            * * *
+            * *
+            *
+        </pre>
+        <p>El nombre de línies formades per “*” vindrà donat per
+            un número que l’usuari/ària introduirà per consola.</p>
+        <p>Condició: En tot el codi del programa només hi pot haver un *</p>
+        <p>També, a poder ser, no utilitzis cap mètode com repeat()
+            o substring() de la classe String.</p>
+    </details>
+    <h2>Dibujar Triángulo Inverso</h2>
+    <p>Introduce el número de líneas (*): <input type="number" id="numeroLineas" min="1"></p>
+    <p><button onclick="dibujarTriangulo()">Dibujar Triángulo Inverso</button></p>
+    <pre id="resultado"></pre>
+</body>
+<script>
+    function dibujarTriangulo() {
+        console.clear();
+        const NUMLINEAS = parseInt(document.getElementById("numeroLineas").value);
+        let resultado = document.getElementById("resultado");
+        let triangulo = "";
+
+        if (NUMLINEAS > 0 || NUMLINEAS >= 10) {
+
+            for (let i = NUMLINEAS; i >= 1; i--) {
+                let linea = "";
+                for (let j = 1; j <= i; j++) {
+                    linea += " * ";
+                }
+                triangulo += linea + "\n";
+            }
+            console.log(triangulo);
+            resultado.innerHTML = triangulo;
+        } else {
+            resultado.innerHTML = "Por favor, introduce un número válido de líneas.";
+        }
+
+    }
+</script>
+
+</html>

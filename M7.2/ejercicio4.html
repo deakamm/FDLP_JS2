@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.2E4</title>
+</head>
+
+<body>
+    <h1>Ejercicio M7.2E4</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>Realitzar un programa on l’usuari/ària introdueix un número i
+            el programa crida a un mètode que retorna el factorial del número introduït.</p>
+        El factorial d'un nombre n (enter, no negatiu) és el producte de tots els nombres enters positius inferiors o
+        iguals a n. </p>
+    </details>
+    <h2>Programa de Factorial</h2>
+    <p>Introduce un número para calcular su factorial: <input type="number" id="numero"></p>
+    <p><button onclick="calcularFactorial()">Calcular Factorial</button></p>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularFactorial() {
+            let numero1 = parseInt(document.getElementById('numero').value);
+            let factoria = 1;
+            let index = [];
+
+            if (numero1 >= 0) {
+
+                for (let i = 1; i <= numero1; i++) {
+                    factoria *= i;
+                    index.push(i)
+                }
+
+                document.getElementById('resultado').innerHTML = `El resultado factorial de <b>${numero1}</b> es :  
+                                                                        ${index.join(" * ")}  = ${factoria}`;
+                console.log(factoria);
+            } else {
+                alert("Por favor, introduce un número entero no negativo.");
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de notas M3E3</title>
+</head>
+
+<body>
+    <h1>Calculadora de Notas</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>El programa demana a l'usuari/ària que introdueixi 3 notes i</p>
+        <p>el programa mostra la mitjana de les 3 notes per pantalla.</p>
+    </details>
+    <p>Introduce la primera nota: <input type="number" id="num1"></p>
+    <p>Introduce la segunda nota: <input type="number" id="num2"></p>
+    <p>Introduce la tercera nota: <input type="number" id="num3"></p>
+    <button onclick="notaMedio()">Mostrar la nota mediana</button>
+    <p id="medio"></p>
+
+    <script>
+        function notaMedio() {
+
+            // Solicita al usuario que ingrese 3 notas
+            let nota1 = parseFloat(document.getElementById("num1").value);
+            let nota2 = parseFloat(document.getElementById("num2").value);
+            let nota3 = parseFloat(document.getElementById("num3").value);
+
+            // Calcula la suma de las notas
+            let suma = nota1 + nota2 + nota3;
+            console.log("Suma", suma);
+
+            // Calcula el promedio dividiendo la suma entre 3
+            let promedio = (suma / 3).toFixed(2);
+            console.log(promedio);
+
+            // Muestra el promedio en la página HTML
+            let mensaje = "La nota media de las tres notas es: ";
+            document.getElementById('medio').innerHTML = mensaje + promedio;
+        }
+    </script>
+</body>
+
+</html>

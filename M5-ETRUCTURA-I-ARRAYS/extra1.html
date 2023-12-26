@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M5Extra1</title>
+</head>
+
+<body>
+    <h1>Ejercicio M5Extra1</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Realitzar un joc per endevinar un nombre aleatori N, entre 1 i 500.</p>
+        <p>Si la distància entre el nombre a endevinar i el de l'usuari/ària és de 50 o més,<br>
+            el programa haurà de dir:<br />
+            “Fred, fred: el teu número és més gran “ o “Fred, fred: el teu número és més petit “</p>
+        <p>Si la distància entre el nombre a endevinar i el de l'usuari/ària està entre 15 i 50, el programa haurà de
+            dir:<br>
+            “Tebi, Tebi: el teu número és més gran “ o “Tebi, Tebi: el teu número és més petit “
+        </p>
+        <p>I si la distància entre el nombre a endevinar i el de l'usuari/ària i si la distància és menor a 15, el
+            programa haurà de dir:<br>
+            “Calent, calent: el teu número és més gran “ o “Calent, calent: el teu número és més petit “
+        </p>
+    </details>
+    <p>Adivinar un numero entre 1 y 500:</p>
+    <button onclick="jugar()">Adivinar un Numero</button>
+    <p id="mensaje"></p>
+    <script>
+        function jugar() {
+            let numero = Math.floor(Math.random() * 500) + 1;
+            console.log("El numero randon es: ",numero);
+            let mensaje = "";
+
+            do {
+                let numUsuario = parseInt(prompt("Adivina el número entre 1 y 500:"));
+                console.log("El numero del usuario es: ",numUsuario);
+                if (isNaN(numUsuario) || numUsuario < 1 || numUsuario > 500) {
+                    alert("Por favor, ingresa un número válido entre 1 y 500.");
+                    continue;
+                }
+
+                let distancia = Math.abs(numUsuario - numero);
+                console.log("El numero de la distancia es: ",distancia);
+                if (distancia >= 50) {
+                    mensaje = "Frio, frio: el número es" + (numUsuario > numero ? " más grande." : " más pequeño.");
+                } else if (distancia >= 15) {
+                    mensaje = "Tibio, tibio: el número es" + (numUsuario > numero ? " más grande." : " más pequeño.");
+                } else {
+                    mensaje = "Caliente, caliente: el número es" + (numUsuario > numero ? " más grande." : " más pequeño.");
+                }
+
+                if (numUsuario === numero) {
+                    mensaje = `¡Felicitaciones! Adivinaste el número: `;
+                }
+                console.log("El mensaje es: ", mensaje);
+                document.getElementById("mensaje").innerHTML = mensaje + " " + numero;
+                break; // Termina el bucle cuando se adivina el número
+            } while (true);
+        }
+    </script>
+
+</body>
+
+</html>

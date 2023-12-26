@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M4E1</title>
+</head>
+
+<body>
+    <h1>Ejercicio M4E1</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>
+            Modifica l’exercici 1 del mòdul 3. Un cop introduïdes les dades, el programa ha de mostrar el següent per
+            pantalla:
+
+            — Si l’usuari/ària té 18 anys o més: “Nom Cognom, ets MAJOR d’edat”
+
+            — Si l’usuari/ària és menor de 18 anys: “Nom Cognom, ets MENOR d’edat”.
+        </p>
+    </details>
+    <p>Dime tu nombre:<input type="text" id="nom" value="Juan"></p>
+    <p>Dime tu apellido:<input type="text" id="apellido" value="Denzel"></p>
+    <p>Dime tu edad<input type="number" id="edad" value=""></p>
+    <p><button onclick="mostrarDatos()">Mostrar Datos</button></p>
+    <p id="mostrar"></p>
+    <script>
+        function mostrarDatos() {
+            let nombre = document.getElementById("nom").value;
+            console.log("Nombre:", nombre);
+            let apellido = document.getElementById("apellido").value;
+            console.log("Apellido:", apellido);
+            let edad = Number(document.getElementById("edad").value);
+            console.log("Edad:", edad);
+            let nombreCompleto = nombre + " " + apellido;
+            let result = "Tu monbre es :" + nombreCompleto;
+
+            if (edad <= 17) {
+                result += " tu edad es menos de " + edad + ", eres menor";
+            } else {
+                result += " tu edad es superior de " + edad + ", eres mayor";
+            }
+
+
+            document.getElementById("mostrar").innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>

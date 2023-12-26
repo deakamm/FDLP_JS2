@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M5E3</title>
+</head>
+
+<body>
+    <h1>Ejercicio M5E3</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Math.ceil((Math.random() * 10)); Retorna un número entre el 0 i el 10 de forma aleatòria.</p>
+        <p>L’exercici consisteix a què l’usuari/ària ha d'endevinar el número escollit aleatòriament pel programa.</p>
+        <p>El programa, demana números a l’usuari/ària fins que aquest encerti el número aleatori generat pel programa.
+        </p>
+        <p>Un cop l’usuari/ària ha endevinat el número, es mostrarà per pantalla el següent missatge: “Enhorabona, el
+            número era X”.</p>
+    </details>
+    <h2>Adevinar un numero aleatorio entre 1 y 10</h2>
+    <p>Endevina un número entre 1 i 10:</p>
+    <button onclick="adivinarNumero()">Endevinar un número</button>
+    <p id="resultado"></p>
+
+    <script>
+        function adivinarNumero() {
+
+            const NUMALEATORIO = Math.ceil(Math.random() * 10);
+            console.log("El numero es: ", NUMALEATORIO);
+            let num = 0;
+            let respuesta = "";
+
+            while (num !== NUMALEATORIO) {
+
+                num = Number(prompt("¡Adevinar el numero aleatorio!", ""));
+                respuesta = `Enhorabona, el número era :  <b>${NUMALEATORIO}</b>`;
+            }
+            document.getElementById('resultado').innerHTML = respuesta;
+
+        }
+    </script>
+</body>
+
+</html>

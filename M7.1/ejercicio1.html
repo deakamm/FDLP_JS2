@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.1E1</title>
+</head>
+
+<body>
+    <h1>Ejercicio M7.1E1</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Crea un programa on l’usuari/ària introdueix tres notes i el programa calculi la mitja.</p>
+        <P>Si la mitja és inferior a 5 ha de mostrar el següent missatge per pantalla: “No has superat el curs. Has de
+            recuperar”.</P>
+        <P>Si la mitja està entre 5 i 7 ha de mostrar: “Enhorabona! Has aprovat, però hauries de continuar practicant”.
+        </P>
+        <P>Si la mitja és superior a 7 ha de mostrar: "Enhorabona! Has superat el curs! Passa ja al següent nivell!"
+        </p>
+    </details>
+    <h2>Calculadora de Notas</h2>
+    <p>Introduce la primera nota:<input type="number" id="num1" value="5.5"></p>
+    <p>Introduce la segunda nota:<input type="number" id="num2" value="9"></p>
+    <p>Introduce la tercera nota:<input type="number" id="num3" value="8"></p>
+    <p><button onclick="calcularMedia()">Calcular Media</button></p>
+
+    <p id="resultado"></p>
+    <script>
+        function calcularMedia() {
+            let nota1 = parseFloat(document.getElementById("num1").value);
+            let nota2 = parseFloat(document.getElementById("num2").value);
+            let nota3 = parseFloat(document.getElementById("num3").value);
+            let media = 0;
+            let respuesta = "";
+
+            if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
+                respuesta = "Por favor, introduce tres notas válidas.";
+            } else {
+                media = (nota1 + nota2 + nota3) / 3;
+                
+                if (media < 5) {
+                    respuesta = `No has superado el curso.Tu nota es <b>${media.toFixed(2)}</b> Debes repetir.`;
+
+                } else if (media >= 5 && media <= 7) {
+                    respuesta = `¡Enhorabuena! Has aprobado Tu nota es <b>${media.toFixed(2)}</b>,pero deberías seguir practicando.`;
+
+                } else {
+                    respuesta = `¡Enhorabuena! Has superado el curso.Tu nota es <b>${media.toFixed(2)}</b> ¡Pasa al siguiente nivel!`;
+
+                }
+            }
+            document.getElementById("resultado").innerHTML = respuesta;
+        }
+    </script>
+</body>
+
+</html>

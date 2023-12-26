@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.3E7</title>
+</head>
+
+<body>
+    <h1>Ejercicio M7.3E7</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>Un grup d’amics ha quedat per fer una fideuà.
+            Els ingredients principals seran: fideus, gambes, i calamars.
+            Saben que per cada quatre persones han d’utilitzar mig quilo de fideus, 400 grams de calamars i 200 grams de
+            gambes.
+            S’ha de fer un programa que demani per pantalla el preu per quilo de cada ingredient i el nombre d’amics que
+            seran per dinar.
+            El programa ha de calcular les quantitats necessàries de cada ingredient, el preu per persona i el preu
+            final de la fideuà.</p>
+    </details>
+    <p>Introduce el precio por kilo de fideos:<input type="" id="preuF"></p>
+    <p>Introduce el precio por kilo de calamares:<input type="" id="preuC"></p>
+    <p>Introduce el precio por kilo de gambas:<input type="" id="preuG"></p>
+    <p>Introduce el número de amigos que serán para el almuerzo:<input type="" id="numA"></p>
+    <p><button onclick="calcular()">Resultado</button></p>
+    <p id="mostrar"></p>
+    <script>
+        function calcular() {
+            // Solicitar el precio por quilo de cada ingrediente y el número de amigos
+            let precioFideos = parseFloat(document.getElementById("preuF").value);
+            let precioCalamares = parseFloat(document.getElementById("preuC").value);
+            let precioGambas = parseFloat(document.getElementById("preuG").value);
+            let numAmigos = parseInt(document.getElementById("numA").value);
+
+            // Cálculo de las cantidades necesarias de ingredientes
+            let cantidadFideos = (numAmigos / 4) * 0.5; // 0.5 kilos por cada 4 personas
+            console.log("Cantidad de Fideos:", cantidadFideos);
+            let cantidadCalamares = (numAmigos / 4) * 0.4; // 0.4 kilos por cada 4 personas
+            console.log("Cantidad de Calamares:", cantidadCalamares);
+            let cantidadGambas = (numAmigos / 4) * 0.2; // 0.2 kilos por cada 4 personas
+            console.log("Cantidad de Gambas:", cantidadGambas);
+
+            // Cálculo del precio por persona
+            let precioPorPersona = (cantidadFideos * precioFideos + 
+                                    cantidadCalamares * precioCalamares + 
+                                    cantidadGambas * precioGambas) / numAmigos;
+            console.log("Precio por persona: ",precioPorPersona);
+
+            // Cálculo del precio final de la fideuà
+            let precioFinal = precioPorPersona * numAmigos;
+            console.log("Precio Final: ",precioFinal);
+
+            // Mostrar los resultados por pantalla
+            let result = "Cantidades necesarias de ingredientes:" + "<br>" +
+                `-Nombre de persona: ${numAmigos}` + "<br>" +
+                `-Nombre de kilo de Fideos: ${cantidadFideos.toFixed(2)} kg` + "<br>" +
+                `-Nombre de kilo de Calamares: ${cantidadCalamares.toFixed(2)} kg` + "<br>" +
+                `-Nombre de kilo de Gambas: ${cantidadGambas.toFixed(2)} kg` + "<br>" +
+                `Precio por persona: ${precioPorPersona.toFixed(2)} euros` + "<br>" +
+                `Precio final de la fideuà: ${precioFinal.toFixed(2)} euros`;
+
+            document.getElementById("mostrar").innerHTML = result;
+
+
+        }
+    </script>
+</body>
+
+</html>

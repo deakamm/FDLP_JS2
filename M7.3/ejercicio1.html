@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.3E1</title>
+</head>
+
+<body>
+    <h1>Ejercicio M7.3E1</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Segons l’opció escollida haurà d’introduir unes
+            dades o altres perquè el programa mostri per pantalla
+            l’àrea (el valor) del polígon escollit.</p>
+        <p>1. Cuadrado (lado * lado)</p>
+        <p>2. Triangulo ( base * altura/2)</p>
+        <p>3. Rectangulo (base * altura)</p>
+        <p>4. Circulo (Math.PI * radio ** 2)</p>
+    </details>
+
+    <p>Seleccionar un opcion :</p>
+    <select id="opciones">
+        <option value="1">1.Cuadrado</option>
+        <option value="2">2.Triangulo</option>
+        <option value="3">3.Rectangulo</option>
+        <option value="4">4.Circulo</option>
+    </select>
+    <button onclick="main()">Mostrar la Opcion</button>
+    <p id="result"></p>
+    <script>
+        function main() {
+            let resultado = 0;
+            let area = "";
+
+            if (opciones.value === "1") {
+                let lado = parseInt(prompt("Introduce el tamaño de un lado del cuadro"));
+                area = cuadrado(lado);
+                resultado = `El area del cuadrado es : ${area}m2`;
+            } else if (opciones.value === "2") {
+                let base = parseInt(prompt("Introduce la longitud de le base del triangulo"));
+                let altura = parseInt(prompt("introduce la altura del triangulo"));
+                area = triangulo(base, altura);
+                resultado = `El area del triangulo es : ${area}m2`;
+            } else if (opciones.value === "3") {
+                let base = parseInt(prompt("Introduce la longitud de le base del rectangulo"));
+                let altura = parseInt(prompt("introduce la altura del rectangulo"));
+                area = rectangulo(base, altura);
+                resultado = `El area del rectangulo es : ${area}m2`;
+            } else if (opciones.value === "4") {
+                let radio = parseInt(prompt("Introduce el radio del circulo"));
+                area = circulo(radio);
+                resultado = `El area del circulo es : ${area.toFixed(2)}m2`;
+            }
+            document.getElementById("result").innerHTML = resultado;
+        }
+
+        function cuadrado(lado) {
+            return (lado * lado);
+        }
+        function triangulo(base, altura) {
+            return (base * altura / 2);
+        }
+        function rectangulo(base, altura) {
+            return (base * altura);
+        }
+        function circulo(radio) {
+            return (Math.PI * radio ** 2);
+        }
+        
+    </script>
+</body>
+
+</html>

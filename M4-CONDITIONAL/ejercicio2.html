@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M4E2</title>
+</head>
+
+<body>
+    <h1>Ejercicio M4E2</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>
+            Aquest programa li demana l’edat a l’usuari/ària, en funció d’aquesta, mostrarem un dels següents missatges
+            per pantalla: </p>
+        <p>Si té 5 anys o menys: preescolar.</p>
+        <p>Si té entre 6 i 11 anys: primària.</p>
+        <p>Si té entre 12 i 15: ESO.</p>
+        <p>Si té entre 16 i 17: Batxillerat.</p>
+        <p>Si és major d'edat: FP o Universitat.</p>
+
+    </details>
+    <p>Introduce tu nombre: <input type="text" id="nom" value="Kevin"></p>
+    <p>Introduce tu edad: <input type="number" id="num" value=""></p>
+    <p><button onclick="mostrar()">Mostrar el resultado</button></p>
+    <p id="mostrar"></p>
+
+    <script>
+        function mostrar() {
+            let nombre = document.getElementById("nom").value;
+            let edad = Number(document.getElementById("num").value);
+            let result = "Tu nombre: " + nombre;
+
+            if (edad <= 5) {
+                result += " tiene " + edad + " años " + ", de 5 años o menos es: preescolar"
+            } else if (edad >= 6 && edad <= 11) {
+                result += " tiene " + edad + " años " + ", entre 6 y 11 años: primària."
+            } else if (edad >= 12 && edad <= 15) {
+                result += " tiene " + edad + " años " + ", entre 12 y 15: ESO."
+            } else if (edad >= 16 && edad <= 17) {
+                result += " tiene " + edad + " años " + ", entre 16 y 17: Batxillerat."
+            } else {
+                result += " eres mayor de " + edad + " años " + ": FP o Universitat.";
+            }
+
+            document.getElementById("mostrar").innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>

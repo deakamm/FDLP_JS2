@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M6E2</title>
+</head>
+
+<body>
+    <h1>Ejercicio M6E2</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Aquest programa calcula l'edat mitjana
+            d'un número de persones introduït per teclat.</p>
+        <p>S'ha de crear una funció que s'encarregui
+            de demanar les edats a l'usuari/ària i de calcular l'edat mitjana.</p>
+        <p>La funció rebrà per paràmetre el núm. de persones a qui ha de demanar l'edat.</p>
+        <p>L'edat de les persones només serà vàlida si està compresa entre 0 i 120 anys.</p>
+        <p>La mitjana de les edats introduïdes s'ha de retornar per la funció (return).</p>
+    </details>
+    <h2>Calcula l'edat mitjana amb funció</h2>
+    <p>Introduce numero :<input type="number" id="num"></p>
+    <p><button onclick="main()">Calcular la edad media</button></p>
+    <p id="resultado"></p>
+    <script>
+        function main() {
+            let numPersonas = Number(document.getElementById("num").value);
+            let resultado = "";
+            
+            if (numPersonas < 0 || numPersonas > 300) {
+                alert("Introduce un numero entre 1 a 300");
+            } else {
+                edadMedia = promedio(numPersonas);
+                resultado = document.getElementById("resultado").innerHTML = `La edad media de las ${numPersonas} personas es de ${edadMedia}`;
+            }
+        }
+
+        function promedio(numPersonas) {
+            let edad = 0;
+            let suma = 0;
+            let edadMedia = 0;
+
+            for (let index = 1; index <= numPersonas; index++) {
+                do {
+                    edad = parseInt(prompt("Introduce tu edad: "));
+                } while (edad < 0 || edad > 120);
+                suma += edad;
+            }
+            edadMedia = parseInt(suma / numPersonas);
+            console.log("La edad media es: ", edadMedia);
+            return edadMedia;
+        }
+    </script>
+</body>
+
+</html>

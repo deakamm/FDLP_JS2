@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.3E4</title>
+</head>
+
+<body>
+    <h1>Ejercicio M7.3E4</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>
+            L’usuari/ària ha d’introduir un DNI i el programa ha de dir si la
+            lletra és correcte o no amb el nombre de DNI. Si la lletra no és
+            correcta, ha de dir quina lletra és la correcta.
+        </p>
+        <p>
+            Per calcular la lletra DNI has de prendre el número de DNI a verificar
+            i dividir-lo entre 23. La resta es reemplaça per una lletra que ja
+            està assignada a aquest nombre mitjançant la taula adjunta:
+        </p>
+    </details>
+    <table>
+        <tr>
+            <td>Resto</td>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>Letra</td>
+            <td>T</td>
+            <td>R</td>
+            <td>W</td>
+            <td>A</td>
+            <td>G</td>
+            <td>M</td>
+            <td>Y</td>
+            <td>F</td>
+            <td>P</td>
+            <td>D</td>
+            <td>X</td>
+            <td>B</td>
+            <td>N</td>
+            <td>J</td>
+            <td>Z</td>
+            <td>S</td>
+            <td>Q</td>
+            <td>V</td>
+            <td>H</td>
+            <td>L</td>
+            <td>C</td>
+            <td>K</td>
+            <td>E</td>
+        </tr>
+    </table>
+    <p>Introduce tu DNI:<input type="text" id="entrada"></p>
+    <p><button onclick="main()">Verificar</button></p>
+    <p id="resultado"></p>
+
+    <script>
+        function main() {
+            const DNI = document.getElementById("entrada").value.toUpperCase();
+            if (DNI.length !== 9) {
+                document.getElementById("resultado").innerHTML = "El DNI debe tener 9 caracteres.";
+            } else {
+                document.getElementById("resultado").innerHTML = verificarDNI(DNI);
+            }
+
+        }
+        function verificarDNI(DNI) {
+
+            let letrasDni = ["Z", "X", "W", "A", "G", "M", "Y", "F", "P", "D", "R", "B", "N", "J", "T", "S", "Q", "V", "H", "L", "C", "K", "E"];
+            let numero = parseInt(DNI.slice(0, -1));
+            console.log("El numero ", numero);
+            let letra = DNI[DNI.length - 1];
+            console.log("La letra entrada es :", letra);
+            let letraCalculada = letrasDni[numero % 23];
+            console.log("La letra correcta es :", letraCalculada);
+
+
+            return (letra === letraCalculada) ?
+                'El DNI: ' + DNI + " es correcto." :
+                'El DNI: ' + DNI + ' es incorrecto ' + '<br>' + 'la letra correcta es ' + letraCalculada;
+        }
+
+    </script>
+</body>
+
+</html>

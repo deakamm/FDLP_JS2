@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M8.2-E4</title>
+</head>
+
+<body>
+    <h1>Ejercicio M8.2-E4</h1>
+    <h2>Programa para calcular circulos</h2>
+    <details>
+        <summary><mark><strong>Enunciado</strong></mark></summary>
+        <p><b>distanciaCentres(altreCercle):</b> Retorna la distància entre el centre del cercle actual i el rebut com a
+            paràmetre.
+            Fórmula de distancia entre dos puntos</p>
+        <p><b>equals(altreCercle):</b> Retorna true si dos cercles són iguals (si tenen el mateix centre i el mateix
+            radi).</p>
+        <p><b>sonConcentrics(altreCercle):</b> Retorna true si dos cercles són concèntrics (tenen igual centre).</p>
+        <p><b>tenenIgualRadi(altreCercle):</b> Retorna true si dos cercles tenen el mateix radi.</p>
+        <p><b>sonTangents(altreCercle):</b> Retorna true si dos cercles són tangents.</p>
+        <p><b>sonSecants(altreCercle):</b> Retorna true si dos cercles són secants.</p>
+        <p><b>noEsToquen(altreCercle):</b> Retorna true si dos cercles no es toquen.</p>
+    </details>
+
+    <table width="70%">
+        <tr>
+            <th width="15%"></th>
+            <th>Punto A (x)</th>
+            <th>Punto A (y)</th>
+            <th>Punto B (x)</th>
+            <th>Punto B (y)</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td><strong>Circulo&nbsp;1</strong></td>
+            <td><input type="number" id="xA1" value="0" style="width:70px;"></td>
+            <td><input type="number" id="yA1" value="4" style="width:70px;"></td>
+            <td><input type="number" id="xB1" value="2" style="width:70px;"></td>
+            <td><input type="number" id="yB1" value="1" style="width:70px;"></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><strong>Circulo&nbsp;2</strong></td>
+            <td><input type="number" id="xA2" value="-3" style="width:70px;"></td>
+            <td><input type="number" id="yA2" value="-1" style="width:70px;"></td>
+            <td><input type="number" id="xB2" value="3" style="width:70px;"></td>
+            <td><input type="number" id="yB2" value="4" style="width:70px;"></td>
+            <td><button onclick="calcular()">Calcular</button></td>
+        </tr>
+    </table>
+    <h1>Resultados</h1>
+    <p id="resultado1"></p>
+    <p id="resultado2"></p>
+    <p>Fórmula pendiente: <em><mark> d = √((x2 - x1)² + (y2 - y1)²)</mark></em></p>
+    <ul>
+        <li>distanciaCentres(altreCercle): <strong><span id="distanciaCentres"></span></strong></li>
+        <li>equals(altreCercle): <strong><span id="equals"></span></strong></li>
+        <li>sonConcentrics(altreCercle): <strong><span id="sonConcentrics"></span></strong></li>
+        <br>
+        <li>tenenIgualRadi(altreCercle): <strong><span id="tenenIgualRadi"></span></strong></li>
+        <li>sonTangents(altreCercle): <strong><span id="sonTangents"></span></strong></li>
+        <li>sonSecants(altreCercle): <strong><span id="sonSecants"></span></strong></li>
+        <br>
+        <li>noEsToquen(altreCercle): <strong><span id="noEsToquen"></span></strong></li>
+    </ul>
+    <script src="./js/clase.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

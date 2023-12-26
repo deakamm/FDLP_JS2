@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.2E8</title>
+</head>
+
+<body>
+    <h1>Ejercicio M7.2E8</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>L’usuari/ària introdueix un nombre per teclat i 
+            el programa crida a un mètode que ha de mostrar la successió de Fibonacci.
+        </p>
+    </details>
+    <h2>Calculadora Fibonacci</h2>
+    <p>Introduce un número para la sucesión de Fibonacci: <input type="number" id="num"></p>
+    <p><button onclick="mostrar()">Mostrar el resultado de Fibonacci</button></p>
+    <p id="resultado"></p>
+
+    <script>
+        function mostrar() {
+            let numero = parseInt(document.getElementById("num").value);
+            let num1 = 0;
+            let num2 = 1;
+            let resultado = "";
+
+            if (numero > 0) {
+                let index = 0;
+
+                while (index < numero) {
+                    resultado += num1 + ", ";
+                    let siguiente = num1 + num2;
+                    num1 = num2;
+                    num2 = siguiente;
+                    index++;
+                }
+            } else {
+                alert("Introduce un número válido para la sucesión de Fibonacci.");
+            }
+
+            document.getElementById("resultado").innerHTML ="El resultado es: " + resultado.slice(0, -2); // Eliminar la coma final
+        }
+    </script>
+</body>
+
+</html>

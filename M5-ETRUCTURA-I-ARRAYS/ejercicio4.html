@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M5E4</title>
+</head>
+
+<body>
+    <h1>Ejercicio M5E4</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Math.ceil((Math.random() * 10)); Retorna un número entre el 0 i el 10 de forma aleatòria.</p>
+        <p>L’exercici consisteix a què l’usuari/ària ha d'endevinar el número escollit aleatòriament pel programa.</p>
+        <p>El programa, demana números a l’usuari/ària fins que aquest encerti el número aleatori generat pel programa.
+        </p>
+        <p>Un cop l’usuari/ària ha endevinat el número, es mostrarà per pantalla el següent missatge: “Enhorabona, el
+            número era X”.</p>
+        <hr>
+        <p>Has de modificar el programa anterior per afegir una nova funcionalitat: establir un número màxim de 5
+            intents.</p>
+        <p>Si l’usuari/ària encerta el número escollit pel programa abans d'aquests 5 intents,
+            el programa mostra el següent missatge per pantalla: “Enhorabona, el número és X i has necessitat Y intents
+            per encertar-lo”.</p>
+        <p>Si no encerta el número abans de 5 intents, el programa mostra per pantalla: “Has utilitzat massa intents! El
+            número és X”.</p>
+    </details>
+    <h2>Adevinar un numero aleatorio entre 1 y 10 con 5 intentos</h2>
+    <p>Endevina un número entre 1 i 10:</p>
+    <button onclick="adivinarNumero()">Endevinar un número</button>
+    <p id="resultado"></p>
+
+    <script>
+        function adivinarNumero() {
+
+            const NUMALEATORIO = Math.ceil(Math.random() * 10);
+            console.log("El numero es: ", NUMALEATORIO);
+            let num = 0;
+            let intentos = 1;
+            let respuesta = "";
+
+            while (num !== NUMALEATORIO && intentos <= 5) {
+                do {
+                    num = Number(prompt(" ¡Adivinar el numero aleatorio! intento " + intentos, ""));
+
+                } while (num < 0 || num > 10)
+
+                if (num === NUMALEATORIO) {
+                    respuesta = `¡Enhorabuena, el número era : <b>${NUMALEATORIO}</b> y has necesitado <b>${intentos}</b> intentos para acertarlo!`;
+                } else if (intentos < 5) {
+                    alert ("No has adivinado el número. Intenta de nuevo.");
+                } else {
+                    respuesta = `Has utilizado demasiados intentos. El número era: <b>${NUMALEATORIO}</b>`;
+                }
+                intentos++;
+            }
+            document.getElementById('resultado').innerHTML = respuesta;
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M4Extra2</title>
+</head>
+
+<body>
+    <h1>Ejercicio M4Extra2</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Demana a l'usuari/ària un número entre 0 i 99
+            i mostra'l escrit en lletres (pots fer-ho en català o castellà).</p>
+        <p><b>Ejemplo:</b> 56 (cinquanta-sis) o 56 (cincuenta y seis)</p>
+    </details>
+    <p>Introduce un numero: <input type="number" id="numero"></p>
+    <p><button onclick="mostrarEnEscrito()">Mostrar el numero en Escrito</button></p>
+    <p id="resultado"></p>
+    <script>
+        function mostrarEnEscrito() {
+            
+            // Arrays con las palabras en castellano
+            const UNIDADES = ["cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"];
+            const DECENAS = ["", "diez", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"];
+
+            // Solicitar al usuario un numero entre 0 y 99
+            let numero = parseInt(document.getElementById("numero").value);
+            let respuesta = "";
+            let numeroEscrito = "";
+
+            // Comprobar si el número esta dentro del rango valido
+            if (!isNaN(numero) && numero >= 0 && numero <= 99) {
+
+                if (numero < 10) {
+                    // Numeros del 0 al 9
+                    numeroEscrito = UNIDADES[numero];
+                } else if (numero === 10) {
+                    // Numero 10
+                    numeroEscrito = "diez";
+                } else if (numero < 20) {
+                    // Numeros del 11 al 19
+                    numeroEscrito = "dieci" + UNIDADES[numero - 10];
+                } else {
+                    // Numeros del 20 al 99
+                    const UNIDAD = numero % 10;
+                    const DECENA = Math.floor(numero / 10);
+                    numeroEscrito = DECENAS[DECENA];
+                    if (UNIDAD > 0) {
+                        numeroEscrito += "-" + UNIDADES[UNIDAD];
+                    }
+                }
+
+                respuesta = `El resultado es: <b>${numero}</b> ${numeroEscrito}`;
+            } else {
+                respuesta = "Por favor, introduce un numero valido entre 0 y 99.";
+            }
+
+            document.getElementById("resultado").innerHTML = respuesta;
+        }
+    </script>
+</body>
+
+</html>

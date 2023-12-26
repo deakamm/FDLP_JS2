@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/estilo.css">
+    <title>Carrusel de imagenes</title>
+</head>
+
+<body>
+    <header id="menu">
+    <p>
+        <button class="btn_menu" onclick="agregar()">AGREGAR</button>
+        <button class="btn_menu" onclick="mostrar()">MOSTRAR</button>
+        <button class="btn_menu" onclick="eliminar()">ELIMINAR</button>
+        <button class="btn_menu" onclick="modificar()">MODIFICAR</button>
+    </p>
+    </header>
+    <div id="container">
+        <h1 id="tema">Ciudades favoritas</h1>
+        <p><img id="imagen" alt=""/></p>
+        <p>
+            <button id="retrocede" onclick="retroceder()">Retroceder</button>
+            <span id="nombreImagen"></span>
+            <button id="avanza" onclick="avanzar()">Avanzar</button>
+        </p>
+        <p id="desc"></p>
+    </div>
+</body>
+<script src="./js/claseImagen.js"></script>
+<script src="./js/imagenes.js"></script>
+<script src="./js/carrusel.js"></script>
+<script src="./js/crud.js"></script>
+</html>

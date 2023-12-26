@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M5 Extra2</title>
+</head>
+
+<body>
+    <h1>Ejercicio M5 Extra2</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Realitza un programa que pinti la lletra L per pantalla feta amb asteriscs.</p>
+        <p>El programa demanarà l'altura.</p>
+        <p>El pal horitzontal de la L tindrà una longitud de la meitat (divisió entera entre 2) de l'altura més un.</p>
+    </details>
+    <h2>Dibujar la letra L</h2>
+    <p>Introduce la altura de la letra L: <input type="number" id="numero"></p>
+    <button onclick="dibujarLaLetraL()">Dibujar la letra L</button>
+    <pre id="resultado"></pre>
+
+    <script>
+        function dibujarLaLetraL() {
+            let altura = parseInt(document.getElementById("numero").value);
+            let resultado = "";
+            let base = Math.floor(altura / 2) + 1;
+
+            if (altura > 0 || altura <= 10) {
+
+                for (let i = 1; i <= altura; i++) {
+                    if (i === altura) {
+                        let respuesta = "";
+                        for (let j = 1; j <= base; j++) {
+                            respuesta += "*";
+                        }
+                        resultado += respuesta;
+                    } else {
+                        resultado += "*";
+                    }
+                    resultado += "\n";
+                }
+                console.log(resultado);
+                document.getElementById("resultado").innerHTML = resultado;
+            } else {
+                document.getElementById("resultado").innerHTML = "Por favor, introduce una altura válida (número entre 1 y 10).";
+            }
+        }
+    </script>
+</body>
+
+</html>

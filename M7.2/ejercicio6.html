@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.2E6</title>
+</head>
+<body>
+    <h1>Ejercicio M7.2E6</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>L’usuari/ària ha d’introduir números fins que introdueixi un nombre primer.</p>
+        <p>En el moment que l’usuari/ària introdueixi un nombre primer, el programa ha 
+            de treure per pantalla el següent missatge: “Exacte, el número “x” és primer!”</p>
+    </details>
+    <p><button onclick="main()">Mostrar</button></p>
+    <p id="resultado"></p>
+    <script>
+        function main() {
+            let num;
+            let esPrim = false;
+            do{
+                num = entrarNum();
+                esPrim = calcularPrim(num);
+            }while(esPrim == false);
+            document.getElementById("resultado").innerHTML = `El numero exacto es <b>${num}</b> y es primo `;
+        
+        }
+    
+        function entrarNum() {
+            num = parseInt(prompt("Introduce un numero:"));
+            console.log("El numero introduce es :", num);
+            return num;
+        }
+
+        function calcularPrim() {
+            let divisor = 2;
+            while(num % divisor !== 0){
+                divisor++;
+                console.log("El numero de divisor es:", divisor);
+            }
+            return divisor === num;
+
+        }
+    </script>
+    
+</body>
+</html>

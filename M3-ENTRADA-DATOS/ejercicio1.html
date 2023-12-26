@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Datos</title>
+</head>
+
+<body>
+    <h1>Ejercicio1 M3</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>Fer un programa que li demani a
+            l’usuari/ària mitjançant el prompt aquestes dades:</p>
+    </details>
+
+    <p><button onclick="mostrarDatos()">Mostrar Datos</button></p>
+    <p id="mostrar"></p>
+    <script>
+        function mostrarDatos() {
+            let nombre = prompt("Dime tu nombre:", "Juan");
+            console.log("Nombre:", nombre);
+            let apellido = prompt("Dime tu apellido:", "Denzel");
+            console.log("Apellido:", apellido);
+            let edad = Number(prompt("Dime tu edad:", 39));
+            console.log("Edad:", edad);
+
+            alert("Nombre:" + nombre + "\n" + "Apellido:" + apellido + "\n" + "Edad:" + edad);
+            document.getElementById("mostrar").innerHTML = "Tu monbre es :" + nombre + "<br>" + "Tu apellido es:" + apellido + "<br>" + "Tu edad es:" + edad;
+        }
+    </script>
+</body>
+
+</html>

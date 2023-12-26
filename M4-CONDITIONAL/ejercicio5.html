@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M4E5</title>
+</head>
+
+<body>
+    <h1>Ejercicio M4E5</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Fer un programa que demani dos números i un operador(+,-,*,/).</p>
+        <p>Al final, el programa ha d'imprimir per pantalla el resultat de
+            fer l’operació que contingui la variable operador.</p>
+    </details>
+    <h1>Calculadora con Switch</h1>
+    <p>Introduce el primero numero:
+        <input type="number" id="num1" value="">
+    </p>
+    <p>Introduce el segundo numero:
+        <input type="number" id="num2" value="">
+    </p>
+    <p>Intruduce un operador :<select id="operador">
+            <option value="+">Suma</option>
+            <option value="-">Resta</option>
+            <option value="*">Multiplicar</option>
+            <option value="/">Division</option>
+        </select>
+    </p>
+    <p><button onclick="calcularResultado()">Calcular</button></p>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularResultado() {
+
+            let numero1 = parseFloat(document.getElementById("num1").value);
+            let numero2 = parseFloat(document.getElementById("num2").value);
+            let operador = document.getElementById("operador").value;
+            let resultado = "";
+
+            switch (operador) {
+                case '+':
+                    resultado = numero1 + numero2;
+                    console.log("La suma es: ", resultado);
+                    break;
+                case '-':
+                    resultado = numero1 - numero2;
+                    console.log("La resta es: ", resultado);
+                    break;
+                case '*':
+                    resultado = numero1 * numero2;
+                    console.log("La multiplicación es: ", resultado);
+                    break;
+                case '/':
+                    if (numero2 !== 0) {
+                        resultado = numero1 / numero2;
+                        console.log("La división es: ", resultado);
+                    } else {
+                        resultado = "División por cero no permitida";
+                    }
+                    break;
+                default:
+                    resultado = "Operador no válido";
+            }
+
+            document.getElementById("resultado").innerHTML = `El resultado es: ${resultado}`;
+        }
+    </script>
+</body>
+
+</html>

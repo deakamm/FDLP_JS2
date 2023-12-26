@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Condicional IF</title>
+</head>
+<body>
+  <p>Dime tu nombre: <input type="text" id="nombre" value ="Pepita"></p>
+  <p>¿Cuántos hijos tienes? <input type="number" id="hijos"></p>
+  <p>Sexo: 
+    <select id="sexo">
+      <option value="F">Femenino</option>
+      <option value="M">Masculino</option>
+    </select>
+  </p>
+  <p>
+    <button onclick="mostrar1()">Mostrar condicional simple</button>
+    <button onclick="mostrar2()">Mostrar condicional doble</button>
+    <button onclick="mostrar3()">Mostrar condicional múltiple</button>
+    <button onclick="mostrar4()">Mostrar condicional anidados</button>
+  </p>
+  <p id="resultado"></p>
+
+  <script>
+    function mostrar1(){
+      let nombre = document.getElementById("nombre").value;
+      let hijos = parseInt(document.getElementById("hijos").value);
+      let resultado = "Hola " + nombre;
+
+      if (hijos > 0) {  //la condición siempre va entre paréntesis
+        resultado += ", eres padre o madre."
+      }
+
+      document.getElementById("resultado").innerHTML = resultado;
+    }
+    
+    function mostrar2(){
+      let nombre = document.getElementById("nombre").value;
+      let hijos = parseInt(document.getElementById("hijos").value);
+      let resultado = "Hola " + nombre;
+
+      if (hijos > 0) {  //la condición siempre va entre paréntesis
+        resultado += ", eres padre o madre."
+      } else { // else se lee como y si no...
+        resultado += ", no tienes hijos."
+      }
+
+      document.getElementById("resultado").innerHTML = resultado;
+    }
+
+    function mostrar3(){
+      let nombre = document.getElementById("nombre").value;
+      let hijos = parseInt(document.getElementById("hijos").value);
+      let sexo = document.getElementById("sexo").value;
+      let resultado = "Hola " + nombre;
+
+      if (hijos > 0 && sexo === "F") {  //la condición siempre va entre paréntesis
+        resultado += ", eres madre." 
+      } else if (hijos > 0 && sexo === "M") {
+        resultado += ", eres padre." 
+      } else { // else se lee como y si no...
+        resultado += ", no tienes hijos."
+      }
+
+      document.getElementById("resultado").innerHTML = resultado;
+    }
+
+    function mostrar4(){
+      let nombre = document.getElementById("nombre").value;
+      let hijos = parseInt(document.getElementById("hijos").value);
+      let sexo = document.getElementById("sexo").value;
+      let resultado = "Hola " + nombre;
+
+      if (hijos > 0) {  //la condición siempre va entre paréntesis
+          if (sexo === "F") {
+            resultado += ", eres madre."
+          } else {
+            resultado += ", eres padre." 
+          } 
+      } else { // else se lee como y si no...
+        resultado += ", no tienes hijos."
+      }
+      document.getElementById("resultado").innerHTML = resultado;
+    }    
+  </script>
+
+</body>
+</html>

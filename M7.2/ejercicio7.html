@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.2E7</title>
+</head>
+
+<body>
+    <h1>Ejercicio M7.2E7</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>L’usuari/ària introdueix un any “a” per teclat
+            i el programa crida a un mètode que indiqui si l’any és de traspàs o no.</p>
+    </details>
+    <h2>Comprobar Año Bisiesto</h2>
+    <p>Introduce un año: </p>
+    <button onclick="verificarAnoBisiesto()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function anoBisiesto(anho) {
+            return (anho % 4 === 0 && anho % 100 !== 0) || (anho % 400 === 0);
+        }
+
+        function verificarAnoBisiesto() {
+            let anho;
+            let respuesta = "es un año bisiesto" 
+
+            do {
+                anho = parseInt(prompt("Introduce un año: "));
+            } while (isNaN(anho) || anho < 0);
+
+            if (anoBisiesto(anho)) {
+                document.getElementById("resultado").innerText = `El año ${anho} ${respuesta}.`;
+            } else {
+                document.getElementById("resultado").innerText = `El año ${anho} no ${respuesta}.`;
+            }
+            console.log("el año es: ",anho);
+        }
+    </script>
+</body>
+
+</html>

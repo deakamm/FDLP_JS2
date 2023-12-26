@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <title>Proyecto1 M8.2E1</title>
+</head>
+
+<body>
+    <h1>Ejercicio M8.2E1</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Crea una classe en JavaScript anomenada "Ordinador",
+            en un fitxer anomenat ordinador.js</p>
+
+        <p>Aquesta classe tindrà com a atributs la marca, el model,
+            el processador, la quantitat de memòria RAM i la capacitat del disc dur.</p>
+
+        <p>A més del constructor, ha de disposar dels següents mètodes:</p>
+
+        <p>Mètodes que permetin consultar cadascun dels atributs (getters).</p>
+        <p>Mètodes que permetin modificar el processador,
+            la quantitat de memòria ram i la capacitat del disc dur. (setters).</p>
+        <p>Un mètode que rebrà un paràmetre i retornarà una frase que digui:</p>
+        <p>"En aquests moments s'està executant: 'X'"
+            (X és el paràmetre rebut pel mètode i que normalment serà el nom d'un programa).</p>
+        <p>Exemple: "En aquests moments s'està executant: Chrome" </p>
+        <p>Un mètode que retornarà una descripció completa de l'ordinador (toString()).</p>
+        <p>En un altre fitxer anomenat main.js, crea la funció crearOrdinadors().</p>
+
+        <p>Dintre d'aquesta funció, demanarem a l'usuari/ària mitjançant promtps les dades de dos ordinadors.</p>
+
+        <p>Un cop introduïdes les dades dels dos ordinadors, crida als mètodes de la classe Ordinador per comprovar que
+            funcionen correctament.</p>
+    </details>
+    <h2>Introduce datos de 2 ordinadores</h2>
+    <header id="menu">
+        <p>
+            <button class="btn_menu" onclick="agregar()">Crear Ordenador</button>
+            <button class="btn_menu" onclick="modificar()">Modificar Ordenador</button>
+            <button class="btn_menu" onclick="mostrar()">Consultar Ordenadores</button>
+        </p>
+    </header>
+    <p id="modificar"></p>
+    <p id="consultar"></p>
+    <script src="./js/ordenador.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

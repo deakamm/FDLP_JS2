@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.3E3</title>
+</head>
+<body>
+    <h1>Ejercicio M7.3E3</h1>
+    <details>
+        <summary><mark><strong>Enunciado</strong></mark></summary>
+        <p>L’usuari/ària ha d’introduir 
+        una frase i el programa ha de dir si la frase és un palíndrom.</p>
+    </details>
+    <p>Introduce una palabra o frase para comprobar si es un palíndromo:<input type="text" id="texto" value=""></p>
+    <p><button onclick="main()">Mostrar</button></p>
+    <p id="mostrar"></p>
+    <script>
+        function main() {
+            // Obtener el texto ingresado por el usuario
+            let entrada = document.getElementById("texto").value.toUpperCase();
+
+            // Comprobar si la entrada del usuario es un palíndromo
+            let resultado = esPalindromo(entrada);
+            console.log(resultado);
+            // Mostrar el resultado
+            let mensaje = resultado ? "La entrada es un palíndromo: " + entrada : "La entrada no es un palíndromo: " + entrada;
+            document.getElementById("mostrar").innerHTML = mensaje;
+        }
+        function esPalindromo(frase) {
+            // Eliminar espacios y signos de puntuación, y convertir a minúsculas
+            let fraseProcesado = frase.replace(/[^a-zA-Z0-9]/g, '');
+            console.log(fraseProcesado);
+            
+            // Invertir el texto
+            let fraseInvertido = fraseProcesado.split('').reverse().join('');
+            console.log("", fraseInvertido);
+
+            // Comparar el texto original con el invertido
+            return (fraseProcesado === fraseInvertido);
+        }
+    </script>
+    
+</body>
+</html>

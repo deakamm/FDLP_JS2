@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.2E6</title>
+</head>
+
+<body>
+    <h1>Ejercicio M7.2E6</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Donat un array de números, el programa ha de mostrar
+            la suma de tots els nombres parells i
+            la suma de tots els números imparells.</p>
+    </details>
+    <h2>Suma los numeros pares y los numeros impares</h2>
+    <p><button onclick="mostrar()">Mostrar</button></p>
+    <p id="resultado"></p>
+    <script>
+        function mostrar() {
+            let arrayNumero = [21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10];
+            console.log(arrayNumero);
+            let sumaPares = 0;
+            let sumaImpares = 0;
+
+            if (arrayNumero.length < 1) {
+                alert("Mostar los numeros del array");
+            } else {
+                for (let i = 0; i < arrayNumero.length; i++) {
+                    if (arrayNumero[i] % 2 === 0) {
+                        sumaPares += arrayNumero[i];
+                        console.log("La suma de los pares es",sumaPares);
+                    } else {
+                        sumaImpares += arrayNumero[i];
+                        console.log("La suma de los impares es",sumaImpares);
+                    }
+                }
+
+                alert("Los numeros introducidos son: " + arrayNumero.join(' '));
+            }
+
+            document.getElementById("resultado").innerHTML = "El resultado del array es: " + arrayNumero.join(' ') + "<br>" +
+                "La suma de los numeros pares es: " + sumaPares + "<br>" +
+                "La suma de los numeros impares es: " + sumaImpares;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M5E5</title>
+</head>
+
+<body>
+    <h1>Ejercicio M5E5</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>Has de modificar el programa de les beques
+            (ara el programa només ha de poder donar 5 beques).</p>
+        <p>El programa anirà demanant les dades
+            dels/les alumnes fins que es donin aquestes 5 beques.
+            Un cop el programa hagi assignat les 5 beques s’ha
+            de mostrar per pantalla els noms dels/les 5 alumnes que tenen beca.</p>
+    </details>
+    <h2>Comprovar beques (Ara el programa només donarà 5 beques).
+    </h2>
+    <button onclick="mostrarNombre()">Mostrar Nombres</button>
+    <p id="list"></p>
+    <script>
+        function mostrarNombre() {
+            // Crear un array para almacenar los nombres de los estudiantes con beca
+            const BECA = [];
+            console.log(BECA);
+
+            // crear variable
+            let nombre;
+            let edad;
+            let titulo;
+            let paro;
+            let intento = 0;
+
+            // Bucle do while que solicita los datos hasta que se sale 5 becas
+            do {
+                // Solicitar el nombre del estudiante
+                nombre = prompt("Introduce el nombre del estudiante:");
+                console.log("Nombre: ", nombre);
+                do {
+                    // Validación la edad del estudiante
+                    edad = parseInt(prompt("Introduce tu edad del estudiante:"));
+                    console.log("Edad: ", edad);
+                } while (edad < 18 || edad > 65);
+                // Preguntar el titulo
+                titulo = confirm("Tienes el titulo universitario?");
+                console.log("Titulo: ", titulo);
+                // Preguntar si esta en paro
+                paro = confirm("Estas en paro?");
+                console.log("Paro: ", paro);
+                //Si cumple los requisitos suma los intentos
+                if ((edad > 18 && titulo == true) || (paro == true)) {
+                    alert("Te asigna la beca " + nombre);
+                    BECA.push(nombre);
+                    intento++;
+                    console.log("Intento: ", intento);
+                    //Si no cumple los requisitos sequita tu nombre en la array
+                } else {
+                    alert("No cumple los requisitos para obtener la beca");
+                }
+                //Sale si se han añadido 5 nombres en la array
+
+            } while (intento < 5);
+            alert("¡Felicidades! , ya tienes tu beca " + BECA.join(' '));
+
+            // Mostrar por pantalla los nombres de los estudiantes con beca
+            document.getElementById("list").innerHTML ="Los 5 estudiantes que tienen becas son: " + BECA.join(' ');
+
+        }
+    </script>
+
+</body>
+
+</html

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma de Números Pares e Impares</title>
+</head>
+
+<body>
+    <h1>Programa de Suma</h1>
+    <p>Introduce una lista de números separados por comas:</p>
+    <input type="text" id="numeros">
+    <button onclick="calcularSumas()">Calcular Sumas</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularSumas() {
+            let numerosStr = document.getElementById('numeros').value;
+            let numeros = numerosStr.split(',').map(Number); // Convertir la cadena en un array de números
+            let sumaPares = 0;
+            let sumaImpares = 0;
+
+            // Calcular la suma de pares e impares
+            for (let i = 0; i < numeros.length; i++) {
+                if (numeros[i] % 2 === 0) {
+                    sumaPares += numeros[i];
+                } else {
+                    sumaImpares += numeros[i];
+                }
+            }
+
+            // Mostrar el resultado en pantalla
+            document.getElementById('resultado').innerHTML = `La suma de números pares es: ${sumaPares}<br>
+                                                             La suma de números impares es: ${sumaImpares}`;
+        }
+    </script>
+</body>
+
+</html>

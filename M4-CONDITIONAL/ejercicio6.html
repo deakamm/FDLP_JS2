@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejecicio M4E6</title>
+</head>
+
+<body>
+    <h1>Ejecicio M4E6</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>Fer un programa que demani a l’usuari/ària quin dia i quin mes va néixer,
+            amb aquesta informació el programa mostra per pantalla,
+            de quin signe del zodíac és.</p>
+    </details>
+    <h2>Calculadora de Signo del Zodíaco</h2>
+    <p>Introduce tu día de nacimiento: <input type="number" id="dia" min="1" max="31"></p>
+    <p>Introduce tu mes de nacimiento (en formato numérico): <input type="number" id="mes" min="1" max="12"></p>
+    <p><button onclick="calcularSigno()">Calcular Signo</button></p>
+    <p id="signo"></p>
+
+    <script>
+        function calcularSigno() {
+            // Obtener el día y el mes de nacimiento ingresados por el usuario
+            let dia = parseInt(document.getElementById('dia').value);
+            let mes = parseInt(document.getElementById('mes').value);
+
+            // Determinar el signo del zodíaco
+            let signo = "";
+
+            if ((mes === 3 && dia >= 21) || (mes === 4 && dia <= 19)) {
+                signo = "Aries";
+            } else if ((mes === 4 && dia >= 20) || (mes === 5 && dia <= 20)) {
+                signo = "Tauro";
+            } else if ((mes === 5 && dia >= 21) || (mes === 6 && dia <= 20)) {
+                signo = "Géminis";
+            } else if ((mes === 6 && dia >= 21) || (mes === 7 && dia <= 22)) {
+                signo = "Cáncer";
+            } else if ((mes === 7 && dia >= 23) || (mes === 8 && dia <= 22)) {
+                signo = "Leo";
+            } else if ((mes === 8 && dia >= 23) || (mes === 9 && dia <= 22)) {
+                signo = "Virgo";
+            } else if ((mes === 9 && dia >= 23) || (mes === 10 && dia <= 22)) {
+                signo = "Libra";
+            } else if ((mes === 10 && dia >= 23) || (mes === 11 && dia <= 21)) {
+                signo = "Escorpio";
+            } else if ((mes === 11 && dia >= 22) || (mes === 12 && dia <= 21)) {
+                signo = "Sagitario";
+            } else if ((mes === 12 && dia >= 22) || (mes === 1 && dia <= 19)) {
+                signo = "Capricornio";
+            } else if ((mes === 1 && dia >= 20) || (mes === 2 && dia <= 18)) {
+                signo = "Acuario";
+            } else if ((mes === 2 && dia >= 19) || (mes === 3 && dia <= 20)) {
+                signo = "Piscis";
+            } else {
+                signo = "Fecha de nacimiento no válida";
+            }
+
+            // Mostrar el signo del zodíaco en pantalla
+            document.getElementById('signo').innerHTML =`Tu signo de zodíaco es: <b>${signo}</b>`;
+        }
+    </script>
+</body>
+
+</html>

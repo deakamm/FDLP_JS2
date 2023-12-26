@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Fibonacci</title>
+</head>
+
+<body>
+    <p>Introduce un número para la sucesión de Fibonacci: <input type="number" id="num" value=""></p>
+    <p><button onclick="mostrar()">Mostrar el resultado de Fibonacci</button></p>
+    <p id="resultado"></p>
+
+    <script>
+        function mostrar() {
+            let numero = parseInt(document.getElementById("num").value);
+            console.log("El numero ",numero);
+            let num1 = 0;
+            let num2 = 1;
+            let suma=0;
+            let index = 0;
+            let resultado = "";
+
+            if (numero > 0) {
+
+                while (index < numero) {
+                    resultado += num1 + ", ";
+                    suma = num1 + num2;
+                    num1 = num2;
+                    num2 = suma;
+                    index++;
+                }
+            } else {
+                alert("Introduce un número válido para la sucesión de Fibonacci.");
+            }
+
+            document.getElementById("resultado").innerHTML ="El resultado es: " + resultado.slice(0, -2); // Eliminar la coma final
+            console.log("El resultado: ",resultado);
+        
+        }
+
+    </script>
+</body>
+
+</html>

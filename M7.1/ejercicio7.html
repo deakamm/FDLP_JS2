@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.1E7</title>
+</head>
+<body>
+    <h1>Ejercicio M7.1E7</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Fer un programa on l’usuari/ària introdueix per pantalla un caràcter i un número.</p>
+        <p>El programa imprimeix per pantalla un quadrat amb la mida i el caràcter introduïts per l’usuari/ària.</p>
+    </details>
+    <h2>Dibujar Cuadrado con Caracter</h2>
+    <p>Introduce un carácter: <input type="text" id="caracter"></p>
+    <p>Introduce un número (tamaño del cuadrado): <input type="number" id="tamanio"></p>
+    <p><button onclick="dibujarCuadrado()">Dibujar Cuadrado</button></p>
+    <p id="resultado"></p>
+
+    <script>
+        function dibujarCuadrado() {
+            const CARACTER = document.getElementById("caracter").value;
+            let tamanio = parseInt(document.getElementById("tamanio").value);
+            let linea = "";
+
+            if (CARACTER.length === 1 && (tamanio) && tamanio > 0) {
+
+                for (let i = 0; i < tamanio; i++) {
+                    for (let j = 0; j < tamanio; j++) {
+                        linea += CARACTER ;
+                    }
+                    linea += "</br>";
+                }
+
+                document.getElementById("resultado").innerHTML = linea;
+            } else {
+                document.getElementById("resultado").innerHTML = "Por favor, introduce un carácter válido y un número mayor que 0.";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String Templates</title>
+</head>
+<body>
+  <h1>Convertir Litros en nombre de Tazas</h1>
+  <p>Indica los litros: <input type="number" id="litros"></p>
+  <p><button onclick="calcular()">convertir a Tazas</button></p>
+
+  <p id="resultado1"> </p>
+  <p id="resultado2"> </p>
+
+  <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="noopener noreferrer">String Templates</a></p>
+
+  <script>
+    function calcular() {
+      let litros = Number(document.getElementById("litros").value);
+      const K = 4;
+      let tazas = litros * K;
+      let parrafoResultado1 = document.getElementById("resultado1");
+      let parrafoResultado2 = document.getElementById("resultado2");
+
+      parrafoResultado1.innerHTML = litros + " litros equivalen a <b> " + tazas + " </b>  tazas de 250ml.";
+
+      parrafoResultado2.innerHTML =  ` ${litros} litros equivalen a <b>${tazas}</b> tazas de 250ml.`;
+
+      parrafoResultado1.style.color="red";
+      parrafoResultado1.style.backgroundColor="yellow";
+      parrafoResultado1.style.fontSize="16px";
+
+    }
+  </script>
+  
+</body>
+</html>

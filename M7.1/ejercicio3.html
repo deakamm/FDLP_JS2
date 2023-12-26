@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.1E3</title>
+</head>
+<body>
+    <h1>Ejercicio M7.1E3</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>L’usuari/ària ha d'introduir un número i el programa ha de mostrar 
+            per pantalla si el número és parell o imparell.</p>
+    </details>
+    <h2>Par o Impar</h2>
+    <p>Introduce un número para comprobar si es par o impar:
+    <input type="number" id="numero" value="5">
+    </p>
+    <p><button onclick="comprobarNumero()">Comprobar Numero</button></p>
+    <p id="resultado"></p>
+    <script>
+        function comprobarNumero() {
+            let numero = parseInt(document.getElementById("numero").value);
+            let respuesta = "";
+
+            if (isNaN(numero)) {
+                respuesta = "Por favor, ingresa un numero valido.";
+            } else {
+                if (numero % 2 === 0) {
+                    respuesta = `El numero ${numero} es par.`;
+                } else {
+                    respuesta = `El numero ${numero} es impar.`;
+                }
+            }
+            document.getElementById("resultado").innerHTML = respuesta; 
+        }
+    </script>
+</body>
+</html>

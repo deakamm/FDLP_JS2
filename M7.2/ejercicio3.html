@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.2E3</title>
+</head>
+
+<body>
+    <h1>Ejercicio M7.2E3</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Fes un programa que mostri el següent per pantalla:</p>
+        <p>El nombre de línies formades per “*” vindrà donat per
+            un número que l’usuari/ària introduirà per consola.</p>
+        <p>Condició: En tot el codi del programa només hi pot haver un *</p>
+        <p>També, a poder ser, no utilitzis cap mètode com repeat()
+            o substring() de la classe String.</p>
+        <hr>
+        <p>Fes un programa que mostri el següent per pantalla:</p>
+        <pre>
+                *
+                * *
+                * * *
+                * * * *
+                * * * * *
+                * * * * * *
+                * * * * *
+                * * * *
+                * * *
+                * *
+                *
+            </pre>
+    </details>
+    <h2>Dibujar un piramido</h2>
+    <p>Introduce el número de líneas (*): <input type="number" id="numLineas"></p>
+    <button onclick="dibujarPiramido()">Dibujar piramido</button>
+    <pre id="resultado"></pre>
+</body>
+<script>
+    function dibujarPiramido() {
+        console.clear();
+        const NUMLINEAS = parseInt(document.getElementById("numLineas").value);
+        let resultado = document.getElementById("resultado");
+        let piramido = "";
+
+        if (NUMLINEAS > 1) {
+            // Parte superior de la piramido
+            for (let i = 1; i <= NUMLINEAS; i++) {
+                let linea = "";
+                for (let j = 1; j <= i; j++) {
+                    linea += " * ";
+                }
+                piramido += linea + "\n";
+            }
+
+            // Parte inferior de la piramido
+            for (let i = NUMLINEAS - 1; i >= 1; i--) {
+                let linea = "";
+                for (let j = 1; j <= i; j++) {
+                    linea += " * ";
+                }
+                piramido += linea + "\n";
+            }
+
+            console.log(piramido);
+            resultado.innerHTML = piramido;
+        } else {
+            resultado.innerHTML = "Por favor, introduce un número válido de líneas.";
+        }
+    }
+</script>
+
+</html>

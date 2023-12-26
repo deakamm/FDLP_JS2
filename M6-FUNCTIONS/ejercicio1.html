@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M6E-1</title>
+</head>
+
+<body>
+    <h1>Ejercicio M6E-1</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Calculadora arcaica. El programa demana a l’usuari/ària
+            que introdueixi dos números i l’operació que desitja realitzar.</p>
+        <p>Cada operació (suma, resta, multiplicació,
+            divisió i mòdul) estarà programada en una funció diferent.</p>
+    </details>
+    <h2>Calculadora arcaica con funciones</h2>
+    <p>Introduce el primer número: <input type="number" id="num1"></p>
+    <p>Introduce el segundo número: <input type="number" id="num2"></p>
+    <p><b>Realizar operaciones:</b>
+        <button onclick="main('suma')">Suma</button>
+        <button onclick="main('resta')">Resta</button>
+        <button onclick="main('multiplicacion')">Multiplicación</button>
+        <button onclick="main('division')">División</button>
+        <button onclick="main('resto')">Resto</button>
+    </p>
+    <p id="resultado"></p>
+
+    <script>
+        function main(operacion) {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            let resultado = "";
+
+            switch (operacion) {
+                case 'suma':
+                    resultado = "El resultado de la suma es: " + suma(num1, num2);
+                    break;
+                case 'resta':
+                    resultado = "El resultado de la resta es: " + resta(num1, num2);
+                    break;
+                case 'multiplicacion':
+                    resultado = "El resultado de la multiplicacion es: " + multiplicacion(num1, num2);
+                    break;
+                case 'division':
+                    resultado = "El resultado de la divison es: " + division(num1, num2);
+                    break;
+                case 'resto':
+                    resultado = "El resultado del resto es: " + resto(num1, num2);
+                    break;
+                default:
+                    resultado = "Operación no válida";
+                    break;
+            }
+
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+
+        function suma(num1, num2) {
+            console.log("Suma", num1 + num2);
+            return num1 + num2;
+        }
+
+        function resta(num1, num2) {
+            console.log("Resta", num1 - num2);
+            return num1 - num2;
+        }
+
+        function multiplicacion(num1, num2) {
+            console.log("Multiplicacion", num1 * num2);
+            return num1 * num2;
+        }
+
+        function division(num1, num2) {
+            let total = "Error no se puede dividir por 0";
+            if (num2 !== 0) {
+                console.log("Division", num1 / num2);
+                total = num1 / num2;   
+            }
+            return total;
+        }
+
+        function resto(num1, num2) {
+            let total = "Error no se puede dividir por 0";
+            if (num2 !== 0) {
+                console.log("Resto", num1 % num2);
+                total = num1 % num2;
+            }
+            return total;
+        }
+
+    </script>
+
+</body>
+
+</html>

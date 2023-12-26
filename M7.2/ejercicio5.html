@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.2E5</title>
+</head>
+
+<body>
+    <h1>Ejercicio M7.2E5</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>L’usuari/ària introdueix un nombre per teclat i el programa
+            crida a un mètode que indiqui si el número és primer o no.
+        </p>
+    </details>
+    <h2>Verificar si un número es primo</h2>
+    <p>Introduce un número para verificar si es primo:<input type="number" id="num"></p>
+    <p><button onclick="verificarPrimo()">Verificar</button></p>
+    <p id="mostrar"></p>
+
+    <script>
+        function verificarPrimo() {
+            let numero = parseInt(document.getElementById('num').value);
+            let divisor = 2;
+            let mensaje = " Es primo"
+            let esPrimo = true;
+            console.log(esPrimo);
+
+            while (divisor < numero && esPrimo === true) {
+                if (numero % divisor === 0) {
+                    esPrimo = false;
+                    mensaje = "El numero no es primo"
+
+                } else {
+                    divisor++;
+                }
+            }
+            document.getElementById('mostrar').innerHTML = mensaje;
+        }
+    </script>
+</body>
+
+</html>

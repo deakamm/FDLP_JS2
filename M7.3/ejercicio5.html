@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2 M7.3E5</title>
+</head>
+<body>
+    <h1>Ejercicio2 M7.3E5</h1>
+    <details>
+        <summary>Enunciado</summary>
+        <p>Comprovar si una frase introduïda per 
+            l’usuari/ària està formada només per minúscules, 
+            només per majúscules o per minúscules i majúscules.</p>
+    </details>
+    <p><input type="text" id="texto" value=""></p>
+    <button onclick="main()">Mostrar</button>
+    <p id="frase"></p>
+    <script>
+        function main() {
+            let palabra = document.getElementById("texto").value;
+            let esMinuscula = false;
+            let esMayuscula = false;
+
+            for (let i = 0; i < palabra.length; i++) {
+                if (palabra[i] >= 'a' && palabra[i] <= 'z') {
+                    esMinuscula = true;
+                } else if (palabra[i] >= 'A' && palabra[i] <= 'Z') {
+                    esMayuscula = true;
+                }
+            }
+
+            if (esMinuscula && esMayuscula) {
+                document.getElementById("frase").innerHTML = 'La frase está formada por minúsculas y mayúsculas.';
+            } else if (esMinuscula) {
+                document.getElementById("frase").innerHTML = 'La frase está formada solo por minúsculas.';
+            } else if (esMayuscula) {
+                document.getElementById("frase").innerHTML = 'La frase está formada solo por mayúsculas.';
+            } else {
+                document.getElementById("frase").innerHTML = 'La frase no contiene letras.';
+            }
+        }
+    </script>
+</body>
+</html>

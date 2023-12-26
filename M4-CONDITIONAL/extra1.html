@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M4-EXRTA-1</title>
+</head>
+
+<body>
+    <h1>Ejercicio M4-EXRTA-1</h1>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>Fes un programa que pregunti a l'usuari/ària dos nombres enters al qual anomenaràs dividend i divisor
+            respectivament.</p>
+        <p>El divisor haurà d'estar comprès entre 2 i 7.</p>
+        <p>En cas contrari, el programa haurà de mostrar un missatge d'error.</p>
+        <p>Si el divisor és correcte (2-7) mostra en pantalla si el dividend és múltiple del divisor, o no.</p>
+    </details>
+    <h2>Verificador de Multiplos</h2>
+    <p>Introduce un numero entero como dividendo: <input type="number" id="dividendo"></p>
+    <p>Introduce un numero entero como divisor (entre 2 y 7): <input type="number" id="divisor" min="2" max="7"></p>
+    <button onclick="verificarMultiplo()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarMultiplo() {
+            
+            // Obtener el dividendo y el divisor ingresados por el usuario
+            let dividendo = parseInt(document.getElementById('dividendo').value);
+            let divisor = parseInt(document.getElementById('divisor').value);
+            let respuesta = "";
+
+            // Verificar si el divisor está en el rango correcto (2-7)
+            if (divisor >= 2 && divisor <= 7) {
+                // Verificar si el dividendo es múltiplo del divisor
+                if (dividendo % divisor === 0) {
+                    respuesta = dividendo + " es multiplo de " + divisor;
+                } else {
+                    respuesta = dividendo + " no es multiplo de " + divisor;
+                }
+            } else {
+                respuesta = "Error: El divisor debe estar entre 2 y 7.";
+            }
+            document.getElementById('resultado').innerHTML = respuesta;
+        }
+    </script>
+</body>
+
+</html>

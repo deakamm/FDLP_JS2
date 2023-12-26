@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio M7.1E8</title>
+</head>
+<body>
+    <h1>Ejercicio M7.1E8</h1>
+    <h2>Convertir Temperatura</h2>
+    <details>
+        <summary><mark>Enunciado</mark></summary>
+        <p>Crea un programa on l’usuari/ària introdueixi una temperatura en °C 
+            i es mostri per pantalla la conversió en ° Fahrenheit.</p>
+    </details>
+    <p>Introduce la temperatura de grados en Celsius: <input type="number" id="celsius" value="45"></p>
+    <button onclick="resultado()">Resultado</button>
+    <p id="convertir"></p>
+    <script>
+        function resultado() {
+
+        // Solicita al usuario que introduzca la temperatura en grados Celsius
+        let temperaturaCelsius = parseFloat(document.getElementById("celsius").value);
+        
+        const K = 32;
+
+        // Realiza la conversión a grados Fahrenheit
+         let result = (temperaturaCelsius * 9/5) + K;
+         document.getElementById("convertir").innerHTML = "La Temperatura en grados Fahrenheit es :" + result.toFixed(1);
+
+        // Muestra el resultado en la consola
+        console.log("La temperatura en grados Fahrenheit es: " + result.toFixed(2) + " °F");
+        }
+        
+
+    </script>
+</body>
+</html>
